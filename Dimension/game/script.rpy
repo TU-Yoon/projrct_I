@@ -13,24 +13,6 @@ define m = Character('매시안', color="#0C70F2")
 define r = Character('리스', color="#D62124")
 
 
-
-
-label process_quests:
-    # add a quest with no unlock conditions
-    $ add_new_quest("sucker3")
-
-    # add a quest that only activates if you have money
-    if new_quest("sugar1") and gold>0:
-        $ new_quests.append("sugar1")
-
-    # activate all new quests
-    python:
-        if len(new_quests) > 0: #if we have new quests
-            for i in new_quests:
-                active_quests.insert(0, i) #add to top of the quest list
-            new_quests = [] #now reset the new quest list, since they all got added
-
-##ITEMS
 label inventory:
     scene home
     hide screen bag # 인벤토리 버튼을 숨깁니다.
@@ -77,7 +59,6 @@ label market_sell:
 
 label start:
     python:
-        gold = 20 #starting amount
         inv = []
         seen_items = []
 
@@ -114,6 +95,8 @@ label start:
             jump My_home
         "스토리 테스트를 위해 스토리를 진행합니다.":
             jump s1
+
+
 
     label My_home:
     scene home

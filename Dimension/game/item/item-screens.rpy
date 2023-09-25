@@ -120,7 +120,6 @@ screen inventory(collection, selling=False):
 
                 label thisitem.name style "special_small_label"
 
-            ## !! IMPORTANT !! you need the buying screen from shop-screens.rpy for these buttons to work!
             vbox:
                 align (.75,.2)
                 style_group "sort"
@@ -128,7 +127,6 @@ screen inventory(collection, selling=False):
                     textbutton _("팔기") action ShowTransient("buying", whichitem=thisitem, howmuch=thisitem.value, selling=True)
                 else:
                     textbutton _("버리기") action [Function(thisitem.toss, 1), SetVariable("selected_item", None)]
-            # shop-free alternative toss button:
 
     use item_description(selling)
 
@@ -152,8 +150,7 @@ style sort_button is inventory_button
 style sort_button_text:
     idle_color "#9c9c9c"
 
-##############################################################################
-## Inventory Grid
+
 
 # 아이템 아이콘 크기 조정
 define itemslot_xysize = (52,52)
@@ -182,8 +179,8 @@ screen invgrid(collection, page, first, last, selling=False):
 
                 button xysize itemslot_xysize:
                     style "itemslot_button"
-                    add set_item(item)[1] #shows item image
-                    tooltip set_item(item)[0] #shows item name
+                    add set_item(item)[1]
+                    tooltip set_item(item)[0]
 
                     if selected_item==item:
                         if selling:
@@ -193,7 +190,7 @@ screen invgrid(collection, page, first, last, selling=False):
                     else:
                         action SetVariable("selected_item", item)
 
-            #fill in the rest of the grid with blank squares
+
             for i in range(len(collection[first:last]), invgrid_x*invgrid_y):
                 frame:
                     style "slot"
@@ -294,7 +291,6 @@ style making_button is go_button:
 style making_button_text is go_button_text
 
 
-## move this to gui.rpy if you want
+
 init -2:
     define gui.special_label_text_size = 32
-##

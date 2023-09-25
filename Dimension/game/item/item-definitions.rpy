@@ -1,5 +1,4 @@
-##############################################################################
-# InvItem class
+
 
 init -2 python:
     class InvItem(store.object):
@@ -113,14 +112,6 @@ init -2 python:
 define item_pill = (_("알약"), "item pill", 3,
     _("타임 워프를 할 수 있는 알약이다."), "item_pill")
 
-# CRAFTABLE
-define item_sugar = (_("Sweet Sweet Sugar"), "item sugar", 10,
-    _("Double sweet! Made from beets."), "item_sugar",
-    ["item_beet", "item_water"])
-
-define item_sucker = (_("Common Sucker"), "item sucker", 13,
-    _("Syrup's favorite. Use it to recover HP during battle!"), "item_sucker",
-    ["item_sugar", "item_paper"])
 
 ##############################################################################
 
