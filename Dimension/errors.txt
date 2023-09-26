@@ -1,0 +1,10 @@
+﻿I'm sorry, but errors were detected in your script. Please correct the
+errors listed below, and try again.
+
+
+File "game/script.rpy", line 122: expected 'label_name' not found.
+    call scene main_menu
+        ^
+
+Ren'Py Version: Ren'Py 8.1.2.23090503
+Mon Sep 25 23:03:15 2023
