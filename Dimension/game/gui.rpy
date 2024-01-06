@@ -1,4 +1,4 @@
-################################################################################
+﻿################################################################################
 ## 초기화
 ################################################################################
 
@@ -25,7 +25,7 @@ define config.check_conflicting_properties = True
 ## 인터페이스에서 글자의 색상입니다.
 
 ## 강조 색상은 레이블(label)과 강조된 글자로 인터페이스 전체에서 사용됩니다.
-define gui.accent_color = '#000000'
+define gui.accent_color = '#cc0066'
 
 ## 텍스트 버튼(text button)이 선택(selected)됐거나 커서를 올리지(hovered) 않았을
 ## 때 사용됩니다.
@@ -36,7 +36,7 @@ define gui.idle_color = '#707070'
 define gui.idle_small_color = '#606060'
 
 ## 버튼(button)과 막대(bar)에 커서를 올렸을 때(hovered) 사용됩니다.
-define gui.hover_color = '#000000'
+define gui.hover_color = '#cc0066'
 
 ## 텍스트 버튼(text button)에 선택됐지만(selected) 포커스되지(focused) 않았을 때
 ## 사용됩니다. 버튼(button)은 현재 화면이거나 설정값인 경우 선택됨(selected)이
@@ -48,8 +48,8 @@ define gui.insensitive_color = '#7070707f'
 
 ## 채워지지 않은 빈 막대(bar)에 사용됩니다. 이것은 바로 사용되지 않지만, 막대
 ## (bar) 이미지 파일이 재생성됐을 때 사용됩니다.
-define gui.muted_color = '#666666'
-define gui.hover_muted_color = '#999999'
+define gui.muted_color = '#e066a3'
+define gui.hover_muted_color = '#ea99c1'
 
 ## 대사(dialogue)와 선택지(menu choice)의 글자에서 사용됩니다.
 define gui.text_color = '#404040'
@@ -59,13 +59,13 @@ define gui.interface_text_color = '#404040'
 ## 글자와 글자 크기 ###################################################################
 
 ## 인-게임 글자에 사용됩니다.
-define gui.text_font = "SourceHanSansLite.ttf"
+define gui.text_font = "Maplestory Light.ttf"
 
 ## 캐릭터의 이름에 사용됩니다.
-define gui.name_text_font = "SourceHanSansLite.ttf"
+define gui.name_text_font = "Maplestory Bold.ttf"
 
 ## 인터페이스에 사용됩니다.
-define gui.interface_text_font = "SourceHanSansLite.ttf"
+define gui.interface_text_font = "Maplestory Light.ttf"
 
 ## 일반 대사의 글자 크기입니다.
 define gui.text_size = 33
@@ -471,65 +471,3 @@ init python:
 
         gui.nvl_button_width = 1860
         gui.nvl_button_xpos = 30
-
-
-screen bag:
-    # 버튼을 오른쪽 상단에 배치
-    vbox:
-        xalign 1.0
-        yalign 0.5
-        imagebutton idle "gui/Backpack.png" hover "gui/Backpack.png" action Jump("inventory")
-        
-    
-        
-init:
-    screen stat_overlay:
-        # 호감도 창
-        frame:
-            # 호감도 창 테두리와 컨텐츠와의 간격
-            padding (30, 30)
-            # 호감도 배경 (반투명 - 뒤 2자리 코드가 투명도)
-            background "#FDFDFD"
-            # x, y축 정렬 , 가장 왼쪽에 가도록
-            align (0.01, 0.01)
-            # 호감도 창 크기
-            xmaximum 10000
-            ymaximum 10000
- 
-            # 텍스트와 호감도 바가 수직으로 배치됨
-            vbox:
-                
-                text "행동력{space=20}[persistent.sit[0]]" size 30
-                    
-                # 다음 캐릭터의 바와 이전 캐릭터 텍스트 사이의 간격
-                # padding을 쓸 경우, 바, 텍스트 간격 모두 동일하게 적용됨
-                text " " size 3
- 
-                text "신뢰도{space=20}[persistent.sit[1]]" size 30
- 
-                text " " size 3
- 
-                text "돈{space=20}[persistent.sit[2]]" size 30
-
- 
- 
-init -5 python:
-    # 스태미너 바 스타일
-    style.fixed_bar = Style(style.default)
-    
-    # 스태미너 바 너비
-    style.fixed_bar.xmaximum = 300
-    
-    # 스태미너 바 높이
-    style.fixed_bar.ymaximum = 15
-    
-    # bar의 gutter 부분 간격 정의
-    style.fixed_bar.left_gutter = 0 
-    style.fixed_bar.right_gutter = 0
-    
-    style.fixed_bar.left_bar = Frame("images/bar_full.png", 0, 0) # 바 스타일입니다. 
-    style.fixed_bar.right_bar = Frame("images/bar_empty.png", 0, 0)
-
-
-init python:
-    persistent.sit = [70, 0, 10] # 스태미너 기본 초기값 입니다.
