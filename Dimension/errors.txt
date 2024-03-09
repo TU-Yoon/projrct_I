@@ -2,9 +2,9 @@
 errors listed below, and try again.
 
 
-File "game/script.rpy", line 122: expected 'label_name' not found.
-    call scene main_menu
-        ^
+File "game/script3.rpy", line 580: expecting name after dot.
+    "아직도 그 막막함이 완전히 사라진 건 아니지만, 한 가지 깨달은 게 있다".
+                                               ^
 
-Ren'Py Version: Ren'Py 8.1.2.23090503
-Mon Sep 25 23:03:15 2023
+Ren'Py Version: Ren'Py 8.1.3.23091805
+Sat Jan  6 23:03:29 2024
