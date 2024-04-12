@@ -26,7 +26,7 @@ screen item_description(selling=False):
         label _("설명") style "description_label" yanchor 24
         if selected_item is not None:
             $ thisitem = set_item(selected_item)
-            text thisitem[3] offset (14,6) #info text
+            text thisitem[3] offset (14,6) 
         elif selling:
             text _("아이템을 클릭하여 판매") offset (14,6) color "#8b8b8b"
         else:

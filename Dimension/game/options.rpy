@@ -4,6 +4,9 @@
 ## 의 '#' 표시로 시작되는 줄은 주석 처리된 코드로 필요한 경우 제거해도 됩니다.
 
 
+# Live 2d를 위한 설정
+define config.gl2 = True
+
 ## 기본 ##########################################################################
 
 ## 인간이 읽을 수 있는 게임의 이름. 기본 윈도우의 제목으로 사용되며, 인터페이스
@@ -11,7 +14,7 @@
 ##
 ## 문자열을 _()로 둘러 쌓으면 씌우면 번역의 대상으로 표시됩니다.
 
-define config.name = _("test2")
+define config.name = _("Dimension")
 
 
 ## 위에 주어진 제목이 주 메뉴 화면에 표시되는지 결정합니다. 제목을 숨기려면 이것
@@ -35,7 +38,7 @@ define gui.about = _p("""
 ## 배포판의 실행 파일과 디렉토리에 사용되는 게임의 약식 이름. 이것은 ASCII 전용
 ## 이어야 하며 공백, 콜론 또는 세미콜론을 포함해서는 안 됩니다.
 
-define build.name = "test2"
+define build.name = "Dimension"
 
 
 ## 음악과 음향 ######################################################################
@@ -59,7 +62,7 @@ define config.has_voice = True
 ## 처리를 제거하십시오. 이 파일은 중지되거나 다른 파일이 재생 될 때까지 계속 재
 ## 생합니다.
 
-# define config.main_menu_music = "main-menu-theme.ogg"
+define config.main_menu_music = "Main_Screen_Song.mp3"
 
 
 ## 번역 ##########################################################################
@@ -116,7 +119,7 @@ define config.window_hide_transition = Dissolve(.2)
 ## 기본 글자 속도를 제어합니다. 기본적으로, 0은 즉시이며 다른 숫자는 초당 입력
 ## 할 문자 수입니다.
 
-default preferences.text_cps = 50
+default preferences.text_cps = 0
 
 
 ## 기본 auto-forward 지연 시간입니다. 숫자가 클수록 대기 시간이 길어지며, 0 ~ 30
@@ -139,7 +142,7 @@ default preferences.afm_time = 15
 ## 이것은 일반적으로 변경해서는 안 되며, 항상 표현형식이 아닌 정확한 문자열이어
 ## 야 합니다.
 
-define config.save_directory = "test2-1695659061"
+define config.save_directory = "Dimension-1694677490"
 
 
 ## Icon ########################################################################

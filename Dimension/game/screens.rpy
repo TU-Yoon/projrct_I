@@ -1,4 +1,4 @@
-﻿################################################################################
+################################################################################
 ## 초기화
 ################################################################################
 
@@ -8,6 +8,8 @@ init offset = -1
 ################################################################################
 ## 스타일
 ################################################################################
+
+
 
 style default:
     properties gui.text_properties()
@@ -345,33 +347,41 @@ style navigation_button_text:
 ##
 ## https://www.renpy.org/doc/html/screen_special.html#main-menu
 
-screen main_menu():
+screen main_menu:
 
-    ## 이렇게 하면 다른 메뉴 화면이 모두 교체됩니다.
+    #메인 메뉴에서 기본 배경
+    add Movie(play="images/main_menu animate.mpg") xalign 0.5 yalign 1.1 # xalign ,yalign은 이미지의 위치를 조절합니다.
+    #add "gui/your_image.png" xalign 0.5 yalign 1.1 # xalign ,yalign은 이미지의 위치를 조절합니다.
+
+
     tag menu
+    hbox:
+        xalign 0.5 ## 가로 위치 조정
+        yalign 0.9 ## 세로 위치 조정
+        spacing 20 ## 버튼의 간격을 조정
 
-    add gui.main_menu_background
+        # Start button
+        textbutton _("시작") action Start()
 
-    ## 이 빈 프레임은 기본 메뉴를 어둡게 만듭니다.
-    frame:
-        style "main_menu_frame"
+        # Load button
+        textbutton _("불러오기") action ShowMenu("load")
 
-    ## use 명령어로 스크린 내에 다른 스크린을 불러옵니다. 메인 메뉴 스크린의 내
-    ## 용물은 navigation 스크린에 있습니다.
-    use navigation
+        # Preferences button
+        textbutton _("환경설정") action ShowMenu("preferences")
 
-    if gui.show_name:
+        # Version Info button
+        textbutton _("버전정보") action ShowMenu("about")
 
-        vbox:
-            style "main_menu_vbox"
+        # Controls button
+        textbutton _("조작방법") action ShowMenu("help")
 
-            text "[config.name!t]":
-                style "main_menu_title"
-
-            text "[config.version]":
-                style "main_menu_version"
+        # Quit button
+        textbutton _("종료하기") action Quit()
 
 
+
+# 화면에 이미지 표시
+show rounded_image
 style main_menu_frame is empty
 style main_menu_vbox is vbox
 style main_menu_text is gui_text

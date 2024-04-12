@@ -1,4 +1,4 @@
-﻿################################################################################
+################################################################################
 ## 초기화
 ################################################################################
 
@@ -29,11 +29,11 @@ define gui.accent_color = '#cc0066'
 
 ## 텍스트 버튼(text button)이 선택(selected)됐거나 커서를 올리지(hovered) 않았을
 ## 때 사용됩니다.
-define gui.idle_color = '#707070'
+define gui.idle_color = '#adceff'
 
 ## 작은(small) 색상은 같은 효과를 내기 위해 더 밝거나 어두워야 하는 작은 글자에
 ## 사용됩니다.
-define gui.idle_small_color = '#606060'
+define gui.idle_small_color = '#C7FFF0'
 
 ## 버튼(button)과 막대(bar)에 커서를 올렸을 때(hovered) 사용됩니다.
 define gui.hover_color = '#cc0066'
@@ -52,26 +52,26 @@ define gui.muted_color = '#e066a3'
 define gui.hover_muted_color = '#ea99c1'
 
 ## 대사(dialogue)와 선택지(menu choice)의 글자에서 사용됩니다.
-define gui.text_color = '#404040'
+define gui.text_color = '#C7FFF0'
 define gui.interface_text_color = '#404040'
 
 
 ## 글자와 글자 크기 ###################################################################
 
 ## 인-게임 글자에 사용됩니다.
-define gui.text_font = "Maplestory Light.ttf"
+define gui.text_font = "강원교육현옥샘.ttf"
 
 ## 캐릭터의 이름에 사용됩니다.
-define gui.name_text_font = "Maplestory Bold.ttf"
+define gui.name_text_font = "강원교육모두 Bold.ttf"
 
 ## 인터페이스에 사용됩니다.
-define gui.interface_text_font = "Maplestory Light.ttf"
+define gui.interface_text_font = "강원교육모두 Bold.ttf"
 
 ## 일반 대사의 글자 크기입니다.
-define gui.text_size = 33
+define gui.text_size = 45
 
 ## 캐릭터 이름의 글자 크기입니다.
-define gui.name_text_size = 45
+define gui.name_text_size = 57
 
 ## 게임의 유저 인터페이스에서 글자의 크기입니다.
 define gui.interface_text_size = 33
@@ -471,3 +471,95 @@ init python:
 
         gui.nvl_button_width = 1860
         gui.nvl_button_xpos = 30
+
+
+# 행동 UI
+screen action_ui:
+    # 버튼을 오른쪽 상단에 배치
+    vbox:
+        xalign 0.015
+        yalign 0.27
+        imagebutton idle "gui/custom2.png" hover "gui/custom2-1.png" action [Play("sound", "audio/sfx/click button.ogg"), Jump("action_menu")]
+
+
+
+# GUI 이미지를 정의합니다.
+image custom_gui = "gui/custom.png"
+
+# GUI를 화면에 표시하는 방법을 정의합니다.
+screen custom_gui_screen():
+    # 배경으로 custom_gui 이미지 사용
+    add "custom_gui" align (.0, .0) xoffset 20 yoffset 20
+
+# GUI 이미지를 정의합니다.
+image custom_gui_1 = "gui/custom1.png"
+
+# GUI를 화면에 표시하는 방법을 정의합니다.
+screen custom_gui_screen1():
+    # 배경으로 custom_gui_1 이미지 사용
+    add "custom_gui_1" align (.0, .0) xoffset 20 yoffset 20
+
+# GUI 화면을 한번에 표시하는 기능입니다.
+init python:
+    def show_custom_guis():
+        renpy.show_screen("custom_gui_screen1")
+        renpy.show_screen("custom_gui_screen")
+
+# GUI 화면을 한번에 표시하는 기능입니다.
+init python:
+    def hide_custom_guis():
+        renpy.hide_screen("custom_gui_screen1")
+        renpy.hide_screen("custom_gui_screen")
+        
+
+init:
+    screen stat_overlay:
+        # 호감도 창
+        frame:
+            # 호감도 창 테두리와 컨텐츠와의 간격
+            padding (30, 30)
+            # 호감도 배경 (반투명 - 뒤 2자리 코드가 투명도)
+            background ("gui/inventory box.png")
+            # x, y축 정렬 , 가장 왼쪽에 가도록
+            align (0.01, 0.0)
+            # 호감도 창 크기
+            xmaximum 10000
+            ymaximum 10000
+ 
+            # 텍스트와 호감도 바가 수직으로 배치됨
+            vbox:
+                
+                text "{image=gui/move.png}{space=20}[persistent.sit[0]]" size 30
+                    
+                # 다음 캐릭터의 바와 이전 캐릭터 텍스트 사이의 간격
+                # padding을 쓸 경우, 바, 텍스트 간격 모두 동일하게 적용됨
+                text " " size 3
+ 
+                text "{image=gui/handshake.png}{space=20}[persistent.sit[1]]" size 30
+ 
+                text " " size 3
+ 
+                text "{image=gui/money.png}{space=20}[persistent.sit[2]]" size 30
+
+ 
+ 
+init -5 python:
+    # 스태미너 바 스타일
+    style.fixed_bar = Style(style.default)
+    
+    # 스태미너 바 너비
+    style.fixed_bar.xmaximum = 300
+    
+    # 스태미너 바 높이
+    style.fixed_bar.ymaximum = 15
+    
+    # bar의 gutter 부분 간격 정의
+    style.fixed_bar.left_gutter = 0 
+    style.fixed_bar.right_gutter = 0
+    
+    style.fixed_bar.left_bar = Frame("images/bar_full.png", 0, 0) # 바 스타일입니다. 
+    style.fixed_bar.right_bar = Frame("images/bar_empty.png", 0, 0)
+
+
+init python:
+    persistent.sit = [100, 0, 0] # 스태미너 기본 초기값 입니다.

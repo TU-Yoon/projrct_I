@@ -1,0 +1,10 @@
+﻿I'm sorry, but errors were detected in your script. Please correct the
+errors listed below, and try again.
+
+
+File "game/script.rpy", line 12: invalid syntax
+            {"role": "user", "content": "이 게임의 제작자는 누구야?"},
+             ^
+
+Ren'Py Version: Ren'Py 8.1.2.23090503
+Tue Apr  2 07:29:55 2024
