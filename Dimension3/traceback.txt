@@ -1,0 +1,26 @@
+﻿I'm sorry, but an uncaught exception occurred.
+
+While running game code:
+  File "game/gpt_script.rpy", line 11, in script
+    python:
+  File "game/gpt_script.rpy", line 13, in <module>
+    messages = get_messages()
+NameError: name 'get_messages' is not defined
+
+-- Full Traceback ------------------------------------------------------------
+
+Full traceback:
+  File "game/gpt_script.rpy", line 11, in script
+    python:
+  File "E:\renpy-8.1.2-sdk\renpy\ast.py", line 1138, in execute
+    renpy.python.py_exec_bytecode(self.code.bytecode, self.hide, store=self.store)
+  File "E:\renpy-8.1.2-sdk\renpy\python.py", line 1122, in py_exec_bytecode
+    exec(bytecode, globals, locals)
+  File "game/gpt_script.rpy", line 13, in <module>
+    messages = get_messages()
+NameError: name 'get_messages' is not defined
+
+Windows-10-10.0.22631 AMD64
+Ren'Py 8.1.2.23090503
+Dimension 1.0
+Sat May  4 19:20:59 2024

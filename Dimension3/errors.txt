@@ -1,0 +1,10 @@
+﻿I'm sorry, but errors were detected in your script. Please correct the
+errors listed below, and try again.
+
+
+File "game/gpt_script.rpy", line 54: invalid syntax
+            renpy.hide scg_ree
+                        ^
+
+Ren'Py Version: Ren'Py 8.1.2.23090503
+Sat May  4 07:47:19 2024

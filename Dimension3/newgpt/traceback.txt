@@ -1,0 +1,27 @@
+﻿I'm sorry, but an uncaught exception occurred.
+
+While running game code:
+  File "game/script.rpy", line 5, in script
+    python:
+  File "game/script.rpy", line 34, in <module>
+    messages = chatgpt.completion(messages,proxy=proxy)
+Exception: Error: 400, {"error":"None of the Authorised NPCs were found in the request."}
+
+-- Full Traceback ------------------------------------------------------------
+
+Full traceback:
+  File "game/script.rpy", line 5, in script
+    python:
+  File "E:\renpy-8.1.2-sdk\renpy\ast.py", line 1138, in execute
+    renpy.python.py_exec_bytecode(self.code.bytecode, self.hide, store=self.store)
+  File "E:\renpy-8.1.2-sdk\renpy\python.py", line 1122, in py_exec_bytecode
+    exec(bytecode, globals, locals)
+  File "game/script.rpy", line 34, in <module>
+    messages = chatgpt.completion(messages,proxy=proxy)
+  File "python-packages/chatgpt/__init__.py", line 38, in completion
+Exception: Error: 400, {"error":"None of the Authorised NPCs were found in the request."}
+
+Windows-10-10.0.22631 AMD64
+Ren'Py 8.1.2.23090503
+newgpt 1.0
+Tue Apr  2 07:30:13 2024
